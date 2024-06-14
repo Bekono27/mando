@@ -13,7 +13,7 @@ function startLiking() {
 }
 
 function fetchTokensAndLikePosts(postId, quantity) {
-    fetch('https://automator.tod.news/getTokens.php?page=5&limit=300')
+    fetch('https://automator.tod.news/getTokens.php?page=1&limit=300')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`Network response was not ok: ${response.statusText}`);
@@ -37,11 +37,10 @@ function likePosts(tokens, postId, quantity) {
     let likesCount = 0;
     const limitedTokens = tokens.slice(0, quantity);
     console.log(limitedTokens);
-
+    
     limitedTokens.forEach((token, index) => {
         setTimeout(() => {
             console.log(token);
-            
             fetch(`https://graph.facebook.com/v19.0/${postId}/likes?access_token=` + token.fb_page_Accesstoken, {
                 method: 'POST',
                 headers: {
@@ -60,7 +59,7 @@ function likePosts(tokens, postId, quantity) {
             .catch(error => {
                 updateStatus(`Error with token ${index + 1}: ${error.message}`);
             });
-        }, index * 5000); 
+        }, index * 10000); // Delay of 1000ms (1 second) between each request
     });
 }
 
