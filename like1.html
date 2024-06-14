@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Facebook Post Liker</title>
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>Facebook Post Liker</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="like-form" class="section">
+            <form id="likes-form">
+                <label for="quantity">Number of Likes</label>
+                <input type="number" id="quantity" name="quantity" min="1" required>
+                <label for="postId">Facebook Post ID</label>
+                <input type="text" id="postId" name="postId" required>
+                <button type="button" id="start-button">Start</button>
+            </form>
+        </div>
+        <div id="status" class="section"></div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Facebook Post Liker</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
